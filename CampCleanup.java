@@ -11,48 +11,42 @@ public class CampCleanup {
                 String fullyFormedCampIDElf2=formedCampID(elveCampIDRange[1]);
 
                 System.out.println(fullyFormedCampIDElf1+ "," + fullyFormedCampIDElf2);
-                if( isSubString(fullyFormedCampIDElf1,fullyFormedCampIDElf2)){
-                    pairCounter +=1;
+                if(fullyFormedCampIDElf1.length() > fullyFormedCampIDElf2.length()) {
+                    if (isSubString(fullyFormedCampIDElf1, fullyFormedCampIDElf2)) {
+                        pairCounter = pairCounter+ 1;
+                    }
+                }
+                else {
+                    if (isSubString(fullyFormedCampIDElf2, fullyFormedCampIDElf1)) {
+                        pairCounter += 1;
+                    }
                 }
                 System.out.println(pairCounter);
             }
         }
 
-
+        System.out.println("Final"+ pairCounter);
     }
 
     private static boolean isSubString(String s1, String s2) {
         int M = s1.length();
         int N = s2.length();
-        if (M > N) {
             for (int i = 0; i <= M - N; i++) {
                 int j;
                 /* For current index i, check for pattern match */
-                for (j = 0; j < M; j++) {
+                for (j = 0; j < N; j++) {
                     if (s1.charAt(i + j) != s2.charAt(j))
                         break;
 
                 }
-                if (j == M)
+                if (j == N)
                     return true;
 
             }
+            return false;
         }
-        if (N > M) {
-            for (int i = 0; i <= N - M; i++) {
-                int j;
-                /* For current index i, check for pattern match */
-                for (j = 0; j < M; j++) {
-                    if (s2.charAt(i + j) != s1.charAt(j))
-                        break;
 
-                }
-                if (j == M)
-                    return true;
-            }
 
-        }return false;
-    }
 
     private static String formedCampID(String s) {
         String[] arr=s.split("-");
