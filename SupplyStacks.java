@@ -76,7 +76,7 @@ public static void main(String[] args) {
 	//method to move n elements from one stack to another
 public static void moveNElements(Stack source, Stack destination, int n) {
 	Stack temp = new Stack();
-	Stack temp2 = new Stack();
+	
 	if(n==1) {
 		destination.push(source.pop());
 	}
@@ -87,8 +87,8 @@ public static void moveNElements(Stack source, Stack destination, int n) {
 			
 		}
 		for(int i=0; i<n; i++) {
-			temp2.push(temp.pop());
-			destination.push(temp2.pop());
+			
+			destination.push(temp.pop());
 		}
 	}
 }
